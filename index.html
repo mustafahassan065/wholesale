@@ -3,450 +3,949 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hold My Hand Wholesale - Beginner Reselling Community | $19.99/Month</title>
-    <meta name="description" content="Join Hold My Hand Wholesale for $19.99/month. Beginner-friendly reselling community with step-by-step guidance. 30% affiliate commission. Start your Amazon FBA journey.">
+    <title>Hold My Hand Wholesale | The Ultimate Amazon FBA Blueprint</title>
+    <meta name="description" content="Stop guessing with Amazon FBA. Get step-by-step guidance on ungating, finding profitable distributors, and scaling a real B2B wholesale business.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        fba: {
+                            navy: '#0A1128',       /* Deep Corporate Navy */
+                            blue: '#1E3A8A',       /* Bright Trust Blue */
+                            lightBlue: '#DBEAFE',  /* Subtle Backgrounds */
+                            orange: '#FF9900',     /* The "Amazon" Buy Box Orange */
+                            orangeHover: '#F58A00',
+                            dark: '#050814',       /* Almost Black */
+                            gray: '#F3F4F6',
+                            border: '#E5E7EB',
+                            success: '#00C853'     /* Profit Green */
+                        }
+                    },
+                    animation: {
+                        'float-box': 'floatBox 6s ease-in-out infinite',
+                        'marquee': 'marquee 30s linear infinite',
+                        'pulse-orange': 'pulseOrange 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-in-right': 'slideInRight 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        floatBox: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(2deg)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        pulseOrange: {
+                            '0%, 100%': { opacity: 0.2, transform: 'scale(1)' },
+                            '50%': { opacity: 0.4, transform: 'scale(1.05)', boxShadow: '0 0 30px rgba(255, 153, 0, 0.3)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: 0, transform: 'translateX(50px)' },
+                            '100%': { opacity: 1, transform: 'translateX(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
-        .font-display { font-family: 'Nunito', sans-serif; }
-        .gradient-blue { background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .gradient-teal { background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass-card { background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border: 1px solid rgba(59,130,246,0.2); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        .glow-blue { box-shadow: 0 0 30px rgba(59,130,246,0.2); }
-        .hand-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-        .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; transform: translateY(100%); transition: transform 0.3s; }
-        .sticky-cta.visible { transform: translateY(0); }
-        .btn-primary { background: linear-gradient(135deg, #3b82f6, #06b6d4); }
-        .btn-primary:hover { background: linear-gradient(135deg, #2563eb, #0891b2); }
-        .step-number { background: linear-gradient(135deg, #3b82f6, #06b6d4); }
+        body { background-color: #FAFAFA; color: #111827; overflow-x: hidden; }
+        
+        /* Modern Glass & Shadows */
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .card-shadow { box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05); border: 1px solid #E5E7EB; background: #FFFFFF; }
+        
+        /* Custom FBA Gradients */
+        .bg-gradient-fba { background: linear-gradient(135deg, #0A1128 0%, #1E3A8A 100%); }
+        .text-gradient-orange { background: linear-gradient(135deg, #FF9900 0%, #F58A00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* The specific "Amazon" button style */
+        .btn-amazon { background-color: #FF9900; color: #111827; font-weight: 700; box-shadow: 0 4px 14px rgba(255, 153, 0, 0.3); transition: all 0.3s ease; border: 1px solid #F58A00; }
+        .btn-amazon:hover { background-color: #F58A00; box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4); transform: translateY(-2px); }
+        
+        /* Blueprint Grid Pattern */
+        .bg-blueprint {
+            background-color: #0A1128;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F3F4F6; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FF9900; }
+
+        /* Hide number input arrows */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden hand-pattern">
+<body class="antialiased selection:bg-fba-orange selection:text-white">
 
-    <!-- Sticky Header -->
-    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-blue-200 z-40 shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                    </svg>
+    <div class="bg-fba-navy text-white font-sans text-xs md:text-sm font-medium py-2.5 text-center px-4 relative z-50 flex items-center justify-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-fba-success animate-pulse"></span>
+        Stop getting ungating rejections. The Q1 2026 Supplier List is now live inside the Discord. 
+        <a href="#pricing" class="text-fba-orange hover:underline font-bold ml-2">Unlock It Now</a>
+    </div>
+
+    <nav x-data="{ scrolled: false, mobileMenuOpen: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 20)" 
+         :class="{'glass-nav': scrolled, 'bg-transparent': !scrolled}"
+         class="fixed w-full z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 rounded-lg bg-fba-navy flex items-center justify-center shadow-lg">
+                        <svg class="w-6 h-6 text-fba-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                    </div>
+                    <span class="font-display font-black text-2xl tracking-tight text-fba-navy">
+                        HoldMyHand<span class="text-fba-orange">.</span>
+                    </span>
                 </div>
-                <div>
-                    <span class="font-display text-lg font-bold text-slate-800 block leading-none">Hold My Hand</span>
-                    <span class="text-xs text-blue-500 font-semibold">WHOLESALE</span>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#problem" class="font-sans text-sm font-semibold text-gray-600 hover:text-fba-navy transition-colors">The Reality</a>
+                    <a href="#calculator" class="font-sans text-sm font-semibold text-gray-600 hover:text-fba-navy transition-colors">FBA Calculator</a>
+                    <a href="#dashboard" class="font-sans text-sm font-semibold text-gray-600 hover:text-fba-navy transition-colors">Seller Central View</a>
+                    <a href="#features" class="font-sans text-sm font-semibold text-gray-600 hover:text-fba-navy transition-colors">What's Inside</a>
+                    
+                    <a href="#pricing" class="btn-amazon font-display text-sm uppercase tracking-wider px-6 py-2.5 rounded-md">
+                        Start Wholesale ($19.99)
+                    </a>
+                </div>
+
+                <div class="lg:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-fba-navy hover:text-fba-orange focus:outline-none">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
-            <a href="https://whop.com/hold-my-hand-wholesale/hold-my-hand-wholesale?a=digitalartlab" target="_blank" class="btn-primary text-white font-bold px-5 py-2 rounded-full text-sm transition-all shadow-md">
-                Join $19.99
-            </a>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-50 via-transparent to-cyan-50"></div>
+        <div x-show="mobileMenuOpen" x-collapse class="lg:hidden bg-white border-t border-fba-border shadow-xl">
+            <div class="px-4 pt-4 pb-8 space-y-2">
+                <a href="#problem" @click="mobileMenuOpen = false" class="block px-4 py-3 font-sans text-sm font-bold text-gray-800 hover:bg-gray-50 rounded-lg">The Reality of FBA</a>
+                <a href="#calculator" @click="mobileMenuOpen = false" class="block px-4 py-3 font-sans text-sm font-bold text-gray-800 hover:bg-gray-50 rounded-lg">Profit Calculator</a>
+                <a href="#dashboard" @click="mobileMenuOpen = false" class="block px-4 py-3 font-sans text-sm font-bold text-gray-800 hover:bg-gray-50 rounded-lg">Seller Central View</a>
+                <a href="#pricing" @click="mobileMenuOpen = false" class="block px-4 py-4 mt-6 text-center font-display font-bold uppercase tracking-wider text-fba-navy bg-fba-orange rounded-md shadow-md">
+                    Join The Pass ($19.99)
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-36 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-fba-lightBlue/50 to-transparent"></div>
+            <svg class="absolute -right-20 top-20 w-96 h-96 text-fba-navy opacity-5 animate-float-box" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.5 21.82C12.19 21.99 11.81 21.99 11.5 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.5 2.18C11.81 2.01 12.19 2.01 12.5 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5Z"/>
+            </svg>
+            <div class="absolute top-1/3 left-10 w-[400px] h-[400px] bg-fba-orange/10 rounded-full blur-[100px] animate-pulse-orange"></div>
+        </div>
         
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-2 mb-6">
-                        <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                        <span class="text-sm text-blue-700 font-medium">🤝 11 Members Getting Handheld to Success</span>
-                    </div>
-                    
-                    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-slate-900">
-                        WE HOLD YOUR HAND<br>
-                        <span class="gradient-blue">TO PROFITS</span>
-                    </h1>
-                    
-                    <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-                        Join Hold My Hand Wholesale for <span class="text-blue-600 font-bold">$19.99/month</span>. 
-                        The most supportive reselling community for beginners. 
-                        Step-by-step guidance from your first scan to your first $1,000 month.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                        <a href="https://whop.com/hold-my-hand-wholesale/hold-my-hand-wholesale?a=digitalartlab" target="_blank" 
-                           class="btn-primary text-white font-black text-lg px-8 py-4 rounded-full transition-all transform hover:scale-105 glow-blue flex items-center justify-center gap-2 shadow-lg">
-                            <span>GET HANDHELD - $19.99</span>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-                        </a>
-                    </div>
-
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-slate-500">
-                        <div class="flex items-center gap-2 bg-white px-3 py-1 rounded-full shadow-sm">
-                            <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>30% Affiliate Commission</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-white px-3 py-1 rounded-full shadow-sm">
-                            <svg class="w-5 h-5 text-cyan-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Beginner Friendly</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-white px-3 py-1 rounded-full shadow-sm">
-                            <svg class="w-5 h-5 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>18.2% Conversion Rate</span>
-                        </div>
-                    </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-fba-navy/10 bg-white shadow-sm font-sans text-xs font-bold text-fba-navy mb-6 uppercase tracking-wider">
+                    <svg class="w-4 h-4 text-fba-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    The #1 Rated Wholesale Community
                 </div>
-
-                <!-- Visual Side -->
-                <div class="relative hidden lg:block">
-                    <div class="glass-card p-6 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-xl">👋</div>
-                            <div>
-                                <div class="font-bold text-slate-800">Your Handholder</div>
-                                <div class="text-xs text-blue-500">Online Now</div>
-                            </div>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="bg-blue-50 p-3 rounded-lg rounded-tl-none">
-                                <p class="text-sm text-slate-700">"Found these at Walmart for $15. Should sell for $45 on Amazon. Want me to walk you through listing it?"</p>
-                            </div>
-                            <div class="bg-slate-100 p-3 rounded-lg rounded-tr-none ml-auto max-w-xs">
-                                <p class="text-sm text-slate-700">"Yes please! This is my first flip 🙏"</p>
-                            </div>
-                            <div class="bg-blue-50 p-3 rounded-lg rounded-tl-none">
-                                <p class="text-sm text-slate-700">"No worries, we all started there. Step 1: Download the Amazon Seller app..."</p>
-                            </div>
-                        </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-black mb-6 leading-[1.05] tracking-tight text-fba-navy">
+                    Build A Real <br>
+                    <span class="text-gradient-orange">Amazon Empire.</span><br>
+                    Without The BS.
+                </h1>
+                
+                <p class="mt-6 text-xl text-gray-600 font-medium leading-relaxed max-w-2xl">
+                    Private Label requires massive capital. Dropshipping gets your account banned. <strong>Amazon Wholesale Arbitrage</strong> is the only sustainable, B2B model left. We literally hold your hand through LLC setup, ungating, and securing authorized distributor accounts.
+                </p>
+                
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                    <a href="#pricing" class="inline-flex items-center justify-center px-10 py-4 text-base font-display font-bold uppercase tracking-wider rounded-md btn-amazon">
+                        Get The Wholesale Pass ($19.99)
+                    </a>
+                    <a href="#dashboard" class="inline-flex items-center justify-center px-10 py-4 text-base font-display font-bold uppercase tracking-wider rounded-md text-fba-navy bg-white border-2 border-fba-border hover:border-fba-navy transition-all">
+                        See Proof of Concept
+                    </a>
+                </div>
+                
+                <div class="mt-10 pt-8 border-t border-fba-border flex flex-wrap gap-8 font-sans text-sm text-gray-500 font-semibold">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+                        Guaranteed Ungating Guides
                     </div>
-                    
-                    <div class="glass-card p-4 rounded-xl absolute -bottom-6 -left-6 transform -rotate-3 max-w-xs shadow-lg">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-xl">🎉</div>
-                            <div>
-                                <div class="font-bold text-sm text-slate-800">First sale!</div>
-                                <div class="text-xs text-slate-500">Just now</div>
-                            </div>
-                        </div>
-                        <div class="text-xs text-slate-600">"Made my first $23 profit! Thanks for holding my hand through this ❤️"</div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+                        Verified USA Distributors
                     </div>
                 </div>
             </div>
+
+            <div class="lg:col-span-5 relative hidden lg:block animate-float-box">
+                <div class="absolute inset-0 bg-gradient-to-tr from-fba-lightBlue to-transparent rounded-2xl transform rotate-3 blur-lg"></div>
+                <div class="card-shadow rounded-2xl p-6 relative z-10 bg-white">
+                    <div class="flex justify-between items-center border-b border-fba-border pb-4 mb-4">
+                        <h4 class="font-display font-bold text-fba-navy">The Wholesale Model</h4>
+                        <span class="bg-fba-lightBlue text-fba-blue text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest">B2B Supply Chain</span>
+                    </div>
+                    
+                    <div class="relative h-64 bg-gray-50 rounded-xl border border-fba-border p-4 flex flex-col justify-between overflow-hidden">
+                        <div class="flex items-center gap-4 relative z-10">
+                            <div class="w-12 h-12 bg-white rounded shadow border border-gray-200 flex items-center justify-center text-2xl">🏢</div>
+                            <div>
+                                <p class="font-bold text-sm text-fba-navy">Authorized Brand</p>
+                                <p class="text-xs text-gray-500">Sony, Nike, Lego, etc.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute left-10 top-14 bottom-14 w-0.5 bg-fba-border z-0">
+                            <div class="w-full bg-fba-orange h-full animate-[slideInRight_2s_ease-in-out_infinite]"></div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 relative z-10 ml-12">
+                            <div class="w-12 h-12 bg-fba-navy rounded shadow border border-fba-navy flex items-center justify-center text-white text-xl font-bold">You</div>
+                            <div>
+                                <p class="font-bold text-sm text-fba-orange">Open Wholesale Acct</p>
+                                <p class="text-xs text-gray-500">Buy in bulk at 40-50% off retail.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 relative z-10 ml-24">
+                            <div class="w-12 h-12 bg-white rounded shadow border border-gray-200 flex items-center justify-center text-2xl">📦</div>
+                            <div>
+                                <p class="font-bold text-sm text-fba-navy">Ship Pallets to FBA</p>
+                                <p class="text-xs text-gray-500">Amazon handles prime shipping.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-xs text-gray-400 mt-4 font-medium">Legitimize your business. Build enterprise value.</p>
+                </div>
+            </div>
+            
         </div>
     </section>
 
-    <!-- Stats Bar -->
-    <div class="bg-gradient-to-r from-blue-50 to-cyan-50 border-y border-blue-100 py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="glass-card p-4 rounded-xl">
-                    <div class="text-3xl font-display font-black text-blue-600">11</div>
-                    <div class="text-sm text-slate-500">Members</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl">
-                    <div class="text-3xl font-display font-black text-cyan-600">$19.99</div>
-                    <div class="text-sm text-slate-500">Per Month</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl">
-                    <div class="text-3xl font-display font-black text-teal-600">30%</div>
-                    <div class="text-sm text-slate-500">Commission</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl">
-                    <div class="text-3xl font-display font-black text-blue-600">18.2%</div>
-                    <div class="text-sm text-slate-500">Conversion</div>
-                </div>
-            </div>
+    <div class="bg-fba-navy py-4 border-y border-fba-navy overflow-hidden relative">
+        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-fba-navy to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-fba-navy to-transparent z-10"></div>
+        <div class="flex whitespace-nowrap animate-marquee items-center text-white/50 font-display font-bold uppercase tracking-widest text-sm">
+            <span class="mx-8">Groceries & Gourmet Food</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Health & Household</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Beauty & Personal Care</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Pet Supplies</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Toys & Games</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Home & Kitchen</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Groceries & Gourmet Food</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Health & Household</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Beauty & Personal Care</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Pet Supplies</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Toys & Games</span> <span class="text-fba-orange">✦</span>
+            <span class="mx-8">Home & Kitchen</span>
         </div>
     </div>
 
-    <!-- How It Works -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-slate-900">WE HOLD YOUR HAND <span class="gradient-blue">STEP BY STEP</span></h2>
-                <p class="text-slate-600 text-lg">From complete beginner to confident reseller</p>
+    <section id="problem" class="py-24 bg-gray-50 border-b border-fba-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-fba-orange tracking-widest uppercase mb-4">The Truth About Amazon</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-black mb-6 text-fba-navy">Why 90% of New Sellers <span class="text-red-500">Fail.</span></h3>
+                <p class="text-lg text-gray-600">The "gurus" on YouTube sell you pipe dreams. They push business models that benefit them (selling courses), not models that actually build sustainable businesses.</p>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <div class="glass-card p-6 rounded-2xl text-center relative">
-                    <div class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 shadow-lg">1</div>
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">Join & Introduce</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Tell us your experience level. We pair you with a handholder matched to your needs.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl text-center relative">
-                    <div class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 shadow-lg">2</div>
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">Learn The Basics</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Apps, scanning, sourcing locations. We walk you through your first store visit.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl text-center relative">
-                    <div class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 shadow-lg">3</div>
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">Find Your First Flip</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">We review your finds together. Approve profit margins before you buy.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl text-center relative">
-                    <div class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 shadow-lg">4</div>
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">Scale Together</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Reinvest profits, find suppliers, grow to $1K+ months with ongoing support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What You Get -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-slate-900">SUPPORT THAT <span class="gradient-teal">ACTUALLY HELPS</span></h2>
-                <p class="text-slate-600 text-lg">Everything you need to start from zero</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800">1-on-1 Handholding</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Direct access to experienced resellers who actually answer your questions. No stupid questions, ever.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800">Beginner Video Course</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Step-by-step videos from downloading apps to shipping your first sale. Pause, rewind, learn at your pace.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800">Private Discord</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Friendly community of beginners and mentors. Share wins, ask questions, get feedback on your finds.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800">Deal Approvals</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Send us photos of potential finds. We'll tell you if it's profitable before you spend money. Never buy blind.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800">Supplier List</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Beginner-friendly suppliers with low minimum orders. Build relationships as you scale up.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800">Weekly Check-ins</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Group calls to review progress, celebrate wins, and troubleshoot challenges. You're not alone in this.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20 bg-gradient-to-b from-blue-50 to-cyan-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl font-bold mb-4 text-slate-900">HANDHOLDING <span class="text-blue-600">SUCCESS STORIES</span></h2>
-                <p class="text-slate-600">Real beginners, real support, real profits</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <div class="glass-card p-6 rounded-2xl border-l-4 border-blue-500">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl">👋</div>
-                        <div>
-                            <div class="font-bold text-slate-800">Jennifer M.</div>
-                            <div class="text-xs text-slate-500">Member 2 months</div>
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-4">
+                    <div class="hidden md:block bg-gray-50 p-6 border-r border-gray-200">
+                        <div class="h-16"></div> <div class="space-y-8 font-semibold text-sm text-gray-500 uppercase tracking-wider mt-4">
+                            <div class="h-10 flex items-center">Upfront Capital</div>
+                            <div class="h-10 flex items-center">Account Ban Risk</div>
+                            <div class="h-10 flex items-center">Brand Recognition</div>
+                            <div class="h-10 flex items-center">PPC Ad Spend</div>
+                            <div class="h-10 flex items-center">Sustainability</div>
                         </div>
                     </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">"I was terrified to start. They literally walked me through my first Walmart scan via voice chat. Made $340 profit my first month. Best $20 I spend."</p>
-                    <div class="text-sm font-semibold text-blue-600">$340 first month profit</div>
-                </div>
 
-                <div class="glass-card p-6 rounded-2xl border-l-4 border-cyan-500">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center text-2xl">🤝</div>
-                        <div>
-                            <div class="font-bold text-slate-800">Robert K.</div>
-                            <div class="text-xs text-slate-500">Member 4 months</div>
+                    <div class="p-6 border-b md:border-b-0 md:border-r border-gray-200">
+                        <div class="h-16 flex flex-col items-center justify-center text-center mb-4">
+                            <h4 class="font-display font-bold text-xl text-gray-800">Private Label</h4>
+                            <p class="text-xs text-gray-500">Creating your own brand</p>
+                        </div>
+                        <div class="space-y-4 md:space-y-8 text-center text-sm font-medium">
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Capital:</span> <span class="text-red-500 font-bold">$5k - $15k+</span></div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Ban Risk:</span> Medium</div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Brand:</span> Zero (Nobody knows you)</div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Ads:</span> <span class="text-red-500 font-bold">Massive (Required)</span></div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Sustainability:</span> Takes 6-12 months to rank</div>
                         </div>
                     </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">"The 'dumb questions' I asked in month 1 are now helping new members in month 4. The community actually cares about your success. Rare to find."</p>
-                    <div class="text-sm font-semibold text-cyan-600">Now mentoring others</div>
-                </div>
 
-                <div class="glass-card p-6 rounded-2xl border-l-4 border-teal-500">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-2xl">💪</div>
-                        <div>
-                            <div class="font-bold text-slate-800">Amanda T.</div>
-                            <div class="text-xs text-slate-500">Member 3 months</div>
+                    <div class="p-6 border-b md:border-b-0 md:border-r border-gray-200 bg-red-50/30">
+                        <div class="h-16 flex flex-col items-center justify-center text-center mb-4">
+                            <h4 class="font-display font-bold text-xl text-gray-800">Dropshipping</h4>
+                            <p class="text-xs text-gray-500">Buying from Walmart to Amazon</p>
+                        </div>
+                        <div class="space-y-4 md:space-y-8 text-center text-sm font-medium">
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Capital:</span> $0 - $500</div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Ban Risk:</span> <span class="text-red-600 font-black uppercase">Extremely High</span></div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Brand:</span> Selling other brands illegally</div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Ads:</span> None</div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1">Sustainability:</span> <span class="text-red-500 font-bold">Dead Model. Amazon bans you.</span></div>
                         </div>
                     </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">"Started with $200 capital. They helped me pick products that turned into $800 revenue in 6 weeks. Patient, kind, actually helpful support."</p>
-                    <div class="text-sm font-semibold text-teal-600">4x capital growth</div>
+
+                    <div class="p-6 bg-gradient-to-b from-blue-50 to-white relative shadow-[0_0_30px_rgba(30,58,138,0.1)] z-10 border-2 border-fba-blue rounded-r-xl rounded-l-xl md:rounded-l-none transform md:scale-105">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-fba-blue text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap">
+                            The Hold My Hand Way
+                        </div>
+                        <div class="h-16 flex flex-col items-center justify-center text-center mb-4 mt-2">
+                            <h4 class="font-display font-black text-2xl text-fba-blue">Wholesale FBA</h4>
+                            <p class="text-xs text-fba-navy font-bold">Buying B2B from Distributors</p>
+                        </div>
+                        <div class="space-y-4 md:space-y-8 text-center text-sm font-bold text-fba-navy">
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1 font-medium">Capital:</span> $500 - $2,000</div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1 font-medium">Ban Risk:</span> <span class="text-green-600">Zero (Amazon approved)</span></div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1 font-medium">Brand:</span> Selling established brands (Nike, Dove)</div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1 font-medium">Ads:</span> <span class="text-green-600">Zero (Brands do the marketing)</span></div>
+                            <div class="h-auto md:h-10 flex flex-col md:flex-row items-center justify-center"><span class="md:hidden text-xs text-gray-400 uppercase mb-1 font-medium">Sustainability:</span> Long-term, sellable business.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto">
-                <div class="glass-card rounded-3xl p-8 md:p-12 border-2 border-blue-300 relative overflow-hidden shadow-xl">
-                    <div class="absolute top-0 right-0 btn-primary text-white font-bold px-6 py-2 rounded-bl-2xl text-sm">BEST VALUE</div>
+    <section id="calculator" class="py-24 bg-fba-navy text-white relative overflow-hidden" x-data="{
+        buyCost: 15.00,
+        sellPrice: 35.00,
+        prepFee: 1.50,
+        amazonFeePercent: 15,
+        fbaFulfillmentFee: 4.50,
+        get amazonReferralFee() { return this.sellPrice * (this.amazonFeePercent / 100); },
+        get totalFees() { return this.amazonReferralFee + this.fbaFulfillmentFee + this.prepFee; },
+        get netProfit() { return this.sellPrice - this.buyCost - this.totalFees; },
+        get roi() { return (this.netProfit / this.buyCost) * 100; },
+        get margin() { return (this.netProfit / this.sellPrice) * 100; }
+    }">
+        <div class="absolute inset-0 bg-blueprint opacity-20 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-fba-orange tracking-widest uppercase mb-4">Run The Numbers</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-black mb-4">FBA Profit <span class="text-white">Calculator</span></h3>
+                <p class="text-lg text-gray-400">See exactly how margins work in Wholesale Arbitrage. You don't need 100% margins when you are selling 1,000 units a month of an established brand.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+                
+                <div class="lg:col-span-5 bg-white rounded-2xl p-8 text-fba-navy shadow-2xl">
+                    <h4 class="font-display font-bold text-xl mb-6 border-b border-gray-200 pb-4">Product Variables</h4>
                     
-                    <div class="text-center mb-8">
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg text-3xl">🤝</div>
-                        <h3 class="font-display text-3xl font-bold mb-2 text-slate-800">HOLD MY HAND</h3>
-                        <p class="text-slate-500">Wholesale Pass</p>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Buy Cost from Distributor ($)</label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 font-bold">$</span>
+                                <input type="number" x-model.number="buyCost" class="w-full bg-gray-50 border border-gray-300 rounded-lg py-3 pl-8 pr-4 font-bold text-lg focus:outline-none focus:border-fba-blue focus:ring-1 focus:ring-fba-blue transition-all">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Amazon Buy Box Sale Price ($)</label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 font-bold">$</span>
+                                <input type="number" x-model.number="sellPrice" class="w-full bg-gray-50 border border-gray-300 rounded-lg py-3 pl-8 pr-4 font-bold text-lg focus:outline-none focus:border-fba-blue focus:ring-1 focus:ring-fba-blue transition-all">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-2">Prep Center Fee ($)</label>
+                                <div class="relative">
+                                    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-bold text-sm">$</span>
+                                    <input type="number" x-model.number="prepFee" step="0.10" class="w-full bg-gray-50 border border-gray-300 rounded-lg py-2 pl-7 pr-3 font-bold text-sm focus:outline-none focus:border-fba-blue">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-2">FBA Fulfillment ($)</label>
+                                <div class="relative">
+                                    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-bold text-sm">$</span>
+                                    <input type="number" x-model.number="fbaFulfillmentFee" step="0.10" class="w-full bg-gray-50 border border-gray-300 rounded-lg py-2 pl-7 pr-3 font-bold text-sm focus:outline-none focus:border-fba-blue">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="flex items-baseline justify-center gap-2 mb-8">
-                        <span class="text-6xl font-display font-black text-slate-800">$19.99</span>
-                        <span class="text-slate-500 text-xl">/ month</span>
+                </div>
+
+                <div class="lg:col-span-7 bg-[#131E3A] border border-gray-800 rounded-2xl p-8 flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-display font-bold text-xl mb-6 text-white border-b border-gray-700 pb-4">Amazon Fee Breakdown</h4>
+                        
+                        <div class="space-y-4 font-mono text-sm">
+                            <div class="flex justify-between items-center text-gray-400">
+                                <span>Sale Price (Revenue)</span>
+                                <span class="text-white" x-text="'+ $' + sellPrice.toFixed(2)"></span>
+                            </div>
+                            <div class="flex justify-between items-center text-red-400">
+                                <span>Amazon Referral Fee (15%)</span>
+                                <span x-text="'- $' + amazonReferralFee.toFixed(2)"></span>
+                            </div>
+                            <div class="flex justify-between items-center text-red-400">
+                                <span>FBA Pick & Pack Fee</span>
+                                <span x-text="'- $' + fbaFulfillmentFee.toFixed(2)"></span>
+                            </div>
+                            <div class="flex justify-between items-center text-red-400">
+                                <span>Prep / Labeling Fee</span>
+                                <span x-text="'- $' + prepFee.toFixed(2)"></span>
+                            </div>
+                            <div class="flex justify-between items-center text-red-400">
+                                <span>COGS (Cost of Goods)</span>
+                                <span x-text="'- $' + buyCost.toFixed(2)"></span>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-slate-700">1-on-1 Handholding Support</span></li>
-                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-slate-700">Beginner Video Course</span></li>
-                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-slate-700">Private Discord Community</span></li>
-                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-slate-700">Deal Approval Service</span></li>
-                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-slate-700">Supplier Directory</span></li>
-                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-slate-700">Weekly Group Check-ins</span></li>
-                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-slate-700">30% Affiliate Commission</span></li>
-                    </ul>
-                    
-                    <a href="https://whop.com/hold-my-hand-wholesale/hold-my-hand-wholesale?a=digitalartlab" target="_blank" 
-                       class="block w-full btn-primary text-white font-black text-center text-xl px-8 py-5 rounded-full transition-all transform hover:scale-105 shadow-lg">
-                        GET HANDHELD →
-                    </a>
-                    
-                    <p class="text-xs text-center text-slate-500 mt-4">
-                        Cancel anytime • 30% affiliate commission • 18.2% conversion rate
-                    </p>
+
+                    <div class="mt-8 pt-6 border-t border-gray-700">
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div class="bg-fba-navy rounded-lg p-4 border border-gray-800">
+                                <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Net Profit</p>
+                                <p class="font-display font-black text-2xl" :class="netProfit >= 0 ? 'text-fba-success' : 'text-red-500'" x-text="(netProfit >= 0 ? '$' : '-$') + Math.abs(netProfit).toFixed(2)"></p>
+                            </div>
+                            <div class="bg-fba-navy rounded-lg p-4 border border-gray-800">
+                                <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">ROI</p>
+                                <p class="font-display font-black text-2xl" :class="roi >= 0 ? 'text-white' : 'text-red-500'" x-text="roi.toFixed(1) + '%'"></p>
+                            </div>
+                            <div class="bg-fba-navy rounded-lg p-4 border border-gray-800">
+                                <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Margin</p>
+                                <p class="font-display font-black text-2xl" :class="margin >= 0 ? 'text-white' : 'text-red-500'" x-text="margin.toFixed(1) + '%'"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 flex items-center gap-3 bg-blue-900/30 border border-blue-800/50 p-4 rounded-lg text-sm text-blue-200">
+                            <svg class="w-6 h-6 flex-shrink-0 text-fba-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <p>In wholesale, a 25-40% ROI is standard. The magic is in the volume. Selling 500 units of this item yields <strong class="text-white" x-text="'$' + (netProfit * 500).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})"></strong> profit.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-3xl">
-            <h2 class="font-display text-4xl font-bold text-center mb-12 text-slate-900">QUESTIONS? <span class="text-blue-600">WE'RE HERE.</span></h2>
+    <section id="dashboard" class="py-24 bg-white border-b border-fba-border overflow-hidden">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-fba-orange tracking-widest uppercase mb-4">The Goal</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-black mb-4 text-fba-navy">What A Healthy Dashboard <span class="text-fba-blue">Looks Like.</span></h3>
+                <p class="text-lg text-gray-600">This isn't fake Shopify dashboard screenshots. This is the reality of consistent B2B wholesale replenishments. Build a real asset.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-300 overflow-hidden font-sans text-sm bg-gray-50">
+                
+                <div class="h-14 bg-[#232F3E] flex items-center justify-between px-4">
+                    <div class="flex items-center gap-6">
+                        <div class="text-white font-bold text-lg flex items-end">amazon seller central <span class="text-fba-orange text-2xl leading-none ml-1 transform rotate-12">◡</span></div>
+                        <div class="hidden md:flex gap-4 text-gray-300 text-xs font-bold">
+                            <span class="border-b-2 border-white pb-1 text-white cursor-pointer">Catalog</span>
+                            <span class="hover:text-white cursor-pointer">Inventory</span>
+                            <span class="hover:text-white cursor-pointer">Pricing</span>
+                            <span class="hover:text-white cursor-pointer">Orders</span>
+                            <span class="hover:text-white cursor-pointer">Reports</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 text-white">
+                        <div class="flex items-center gap-1 text-xs">
+                            United States <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-gray-400"></div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        
+                        <div class="lg:col-span-2 space-y-6">
+                            <div class="bg-white border border-gray-200 rounded shadow-sm p-5">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h4 class="font-bold text-gray-800 text-base">Sales Summary</h4>
+                                    <span class="text-xs text-fba-blue hover:underline cursor-pointer">View more</span>
+                                </div>
+                                <div class="flex gap-8 mb-6">
+                                    <div>
+                                        <p class="text-xs text-gray-500 mb-1">Today so far</p>
+                                        <p class="font-bold text-2xl text-gray-900">$1,452.80</p>
+                                        <p class="text-xs text-gray-500 mt-1">42 units</p>
+                                    </div>
+                                    <div class="w-px h-12 bg-gray-200"></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 mb-1">Last 7 days</p>
+                                        <p class="font-bold text-2xl text-gray-900">$12,840.55</p>
+                                        <p class="text-xs text-gray-500 mt-1">385 units</p>
+                                    </div>
+                                    <div class="w-px h-12 bg-gray-200 hidden sm:block"></div>
+                                    <div class="hidden sm:block">
+                                        <p class="text-xs text-gray-500 mb-1">Last 30 days</p>
+                                        <p class="font-bold text-2xl text-fba-success">$45,210.30</p>
+                                        <p class="text-xs text-gray-500 mt-1">1,402 units</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="h-32 w-full relative border-l border-b border-gray-200 mt-4 pl-2 pt-2">
+                                    <div class="absolute -left-6 top-0 text-[9px] text-gray-400">$2k</div>
+                                    <div class="absolute -left-6 top-1/2 text-[9px] text-gray-400">$1k</div>
+                                    <div class="absolute -left-4 bottom-0 text-[9px] text-gray-400">$0</div>
+                                    
+                                    <div class="flex items-end justify-between w-full h-full pb-1 px-2 gap-1">
+                                        <div class="w-full bg-[#E5F1FF] hover:bg-[#007185] transition-colors rounded-t-sm h-[40%]"></div>
+                                        <div class="w-full bg-[#E5F1FF] hover:bg-[#007185] transition-colors rounded-t-sm h-[55%]"></div>
+                                        <div class="w-full bg-[#E5F1FF] hover:bg-[#007185] transition-colors rounded-t-sm h-[30%]"></div>
+                                        <div class="w-full bg-[#E5F1FF] hover:bg-[#007185] transition-colors rounded-t-sm h-[70%]"></div>
+                                        <div class="w-full bg-[#E5F1FF] hover:bg-[#007185] transition-colors rounded-t-sm h-[85%]"></div>
+                                        <div class="w-full bg-[#007185] hover:bg-[#007185] transition-colors rounded-t-sm h-[60%]"></div>
+                                        <div class="w-full bg-[#E5F1FF] hover:bg-[#007185] transition-colors rounded-t-sm h-[90%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded shadow-sm p-5">
+                                <h4 class="font-bold text-gray-800 text-base mb-4">Seller Fulfilled vs FBA Orders</h4>
+                                <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-3">
+                                    <span class="text-gray-600">Pending FBA Orders</span>
+                                    <span class="font-bold text-gray-900 bg-gray-100 px-2 py-1 rounded">142</span>
+                                </div>
+                                <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-3">
+                                    <span class="text-gray-600">Unshipped (Seller Fulfilled)</span>
+                                    <span class="font-bold text-gray-900 bg-gray-100 px-2 py-1 rounded">0</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-600">Return requests</span>
+                                    <span class="font-bold text-gray-900 bg-gray-100 px-2 py-1 rounded">3</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="bg-white border border-gray-200 rounded shadow-sm p-5">
+                                <h4 class="font-bold text-gray-800 text-base mb-4">Account Health</h4>
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-16 h-16 rounded-full border-4 border-green-500 flex items-center justify-center font-bold text-xl text-green-600">240</div>
+                                    <div>
+                                        <p class="font-bold text-green-600">Healthy</p>
+                                        <p class="text-xs text-gray-500">0 Policy Violations</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="text-xs text-fba-blue hover:underline">View Account Health</a>
+                            </div>
+
+                            <div class="bg-white border border-gray-200 rounded shadow-sm p-5">
+                                <h4 class="font-bold text-gray-800 text-base mb-4">Global Payments</h4>
+                                <p class="text-xs text-gray-500 mb-1">Recent Payout (2 days ago)</p>
+                                <p class="font-bold text-xl text-gray-900 mb-4">$14,205.10</p>
+                                <p class="text-xs text-gray-500 mb-1">Next scheduled transfer</p>
+                                <p class="font-bold text-lg text-gray-700">$18,450.00 <span class="text-[10px] font-normal ml-1">in 5 days</span></p>
+                            </div>
+                            
+                            <div class="bg-blue-50 border border-blue-200 p-3 rounded-md mt-4 text-center">
+                                <p class="text-[10px] text-blue-800 uppercase font-bold tracking-widest mb-1">Hold My Hand Framework</p>
+                                <p class="text-xs text-blue-600">This is the dashboard of a student who followed the exact distributor acquisition scripts in our Discord.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="py-24 bg-fba-navy border-b border-fba-border relative">
+        <div class="absolute inset-0 bg-blueprint opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-sm font-bold text-fba-orange tracking-widest uppercase mb-4">The Roadmap</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-black text-white mb-6">How We Hold Your Hand.</h3>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">We don't just dump a PDF on you and leave. The $19.99/mo Discord is structured sequentially to take you from absolute zero to shipping your first pallet.</p>
+            </div>
+
+            <div class="relative">
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-800">
+                    <div class="h-full w-full bg-gradient-to-b from-fba-orange via-fba-blue to-transparent"></div>
+                </div>
+
+                <div class="space-y-16">
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="hidden md:block w-5/12 text-right pr-8">
+                            <h4 class="text-2xl font-display font-bold text-white mb-2">Legal Foundation</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Brands won't sell to you if you look like a beginner. We provide the exact checklist to get your LLC, EIN, and Resale Certificate so you look like a 7-figure enterprise from day one.</p>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-fba-navy border-4 border-fba-orange flex items-center justify-center text-white font-display font-black text-xl relative z-10 shadow-[0_0_20px_rgba(255,153,0,0.5)]">1</div>
+                        <div class="w-full md:w-5/12 mt-6 md:mt-0 pl-0 md:pl-8 text-center md:text-left">
+                            <div class="md:hidden mb-4">
+                                <h4 class="text-2xl font-display font-bold text-white mb-2">Legal Foundation</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">Brands won't sell to you if you look like a beginner. We provide the exact checklist to get your LLC, EIN, and Resale Certificate.</p>
+                            </div>
+                            <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-4 inline-block backdrop-blur-sm">
+                                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider block mb-2">Included Resources:</span>
+                                <span class="bg-gray-700 text-white text-xs px-2 py-1 rounded mr-2">LLC Setup Guide</span>
+                                <span class="bg-gray-700 text-white text-xs px-2 py-1 rounded">Resale Cert. Docs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row-reverse items-center justify-between group">
+                        <div class="hidden md:block w-5/12 text-left pl-8">
+                            <h4 class="text-2xl font-display font-bold text-white mb-2">Supplier Acquisition</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">We give you direct access to lists of verified USA distributors who are currently accepting Amazon sellers. Plus, we give you the exact email and phone scripts to negotiate accounts.</p>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-fba-navy border-4 border-fba-blue flex items-center justify-center text-white font-display font-black text-xl relative z-10 shadow-[0_0_20px_rgba(30,58,138,0.5)]">2</div>
+                        <div class="w-full md:w-5/12 mt-6 md:mt-0 pr-0 md:pr-8 text-center md:text-right">
+                            <div class="md:hidden mb-4">
+                                <h4 class="text-2xl font-display font-bold text-white mb-2">Supplier Acquisition</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">We give you direct access to lists of verified USA distributors who are currently accepting Amazon sellers. Plus the exact call scripts.</p>
+                            </div>
+                            <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-4 inline-block backdrop-blur-sm text-left md:text-right">
+                                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider block mb-2">Included Resources:</span>
+                                <span class="bg-fba-blue text-white text-xs px-2 py-1 rounded mr-2">Verified Supplier Lists</span>
+                                <span class="bg-gray-700 text-white text-xs px-2 py-1 rounded">Email/Phone Scripts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div class="hidden md:block w-5/12 text-right pr-8">
+                            <h4 class="text-2xl font-display font-bold text-white mb-2">The Ungating Secrets</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Amazon locks new sellers out of big brands (Nike, Lego, Grocery). We show you exactly how to buy the required 10 units from specific suppliers to instantly unlock these gated categories.</p>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-fba-navy border-4 border-white flex items-center justify-center text-white font-display font-black text-xl relative z-10 shadow-[0_0_20px_rgba(255,255,255,0.3)]">3</div>
+                        <div class="w-full md:w-5/12 mt-6 md:mt-0 pl-0 md:pl-8 text-center md:text-left">
+                            <div class="md:hidden mb-4">
+                                <h4 class="text-2xl font-display font-bold text-white mb-2">The Ungating Secrets</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">Amazon locks new sellers out of big brands. We show you exactly how to buy the required 10 units to unlock these gated categories.</p>
+                            </div>
+                            <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-4 inline-block backdrop-blur-sm">
+                                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider block mb-2">Included Resources:</span>
+                                <span class="bg-fba-orange text-black font-bold text-xs px-2 py-1 rounded mr-2">Ungating Masterclass</span>
+                                <span class="bg-gray-700 text-white text-xs px-2 py-1 rounded">Invoice Submission Templates</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row-reverse items-center justify-between group">
+                        <div class="hidden md:block w-5/12 text-left pl-8">
+                            <h4 class="text-2xl font-display font-bold text-white mb-2">Sourcing & Shipping</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">How to use tools like Keepa to scan distributor price lists in seconds. Find the 5 profitable items out of a 10,000 item catalog. Then, use our Prep Center network so you never have to touch a cardboard box.</p>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-fba-success border-4 border-fba-navy flex items-center justify-center text-white font-display font-black text-xl relative z-10 shadow-[0_0_30px_rgba(0,200,83,0.5)]">4</div>
+                        <div class="w-full md:w-5/12 mt-6 md:mt-0 pr-0 md:pr-8 text-center md:text-right">
+                            <div class="md:hidden mb-4">
+                                <h4 class="text-2xl font-display font-bold text-white mb-2">Sourcing & Shipping</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">Scan distributor price lists in seconds. Find profitable items, and use our Prep Center network so you never touch a box.</p>
+                            </div>
+                            <div class="bg-gray-800/50 border border-gray-700 rounded-lg p-4 inline-block backdrop-blur-sm text-left md:text-right">
+                                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider block mb-2">Included Resources:</span>
+                                <span class="bg-fba-success text-white font-bold text-xs px-2 py-1 rounded mr-2">Keepa Scanning Guide</span>
+                                <span class="bg-gray-700 text-white text-xs px-2 py-1 rounded">Trusted Prep Centers List</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 bg-gray-50 border-b border-fba-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-fba-orange tracking-widest uppercase mb-4">What's Inside</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-black text-fba-navy mb-4">The Complete FBA Arsenal.</h3>
+                <p class="text-lg text-gray-600">You don't need a $5,000 course. Everything you need is in the $19.99/mo Discord.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-xl card-shadow border border-gray-200 hover:border-fba-blue transition-colors group">
+                    <div class="w-12 h-12 bg-blue-50 text-fba-blue rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-gray-900 mb-3">Distributor Lists</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Stop Googling for hours. Get direct access to curated lists of authorized distributors in grocery, toys, beauty, and electronics who actually work with Amazon sellers.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl card-shadow border border-gray-200 hover:border-fba-orange transition-colors group">
+                    <div class="w-12 h-12 bg-orange-50 text-fba-orange rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-gray-900 mb-3">Auto-Ungating Guides</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Step-by-step videos on how to get ungated in major brands like Nike, LEGO, Grocery, and Topicals within 24 hours using legitimate invoices.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl card-shadow border border-gray-200 hover:border-green-500 transition-colors group">
+                    <div class="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-gray-900 mb-3">Sourcing Software Setup</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Learn how to properly configure Keepa and ScanUnlimited. Automate your sourcing so you can scan a 10,000 item distributor price list in 5 minutes.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl card-shadow border border-gray-200 hover:border-fba-navy transition-colors group">
+                    <div class="w-12 h-12 bg-gray-100 text-fba-navy rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-gray-900 mb-3">Capital & Funding Setup</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">How to structure your LLC to get approved for 0% interest business credit cards, allowing you to scale your inventory without using your own cash.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl card-shadow border border-gray-200 hover:border-fba-blue transition-colors group">
+                    <div class="w-12 h-12 bg-blue-50 text-fba-blue rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-gray-900 mb-3">The Support Network</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Never get stuck. Ask questions in the Discord and get answers from sellers doing $50k+ a month. Review distributor sheets together and avoid bad buys.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl card-shadow border border-gray-200 hover:border-fba-orange transition-colors group">
+                    <div class="w-12 h-12 bg-orange-50 text-fba-orange rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-gray-900 mb-3">Email & Call Scripts</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Copy-paste the exact email templates we use to contact brand owners and distributors to secure wholesale accounts. Professionalism is everything.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-b border-fba-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-display font-black text-center text-fba-navy mb-16 uppercase tracking-tight">The Proof is in the <span class="text-fba-success">Profits.</span></h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 border border-gray-200 p-8 rounded-xl relative">
+                    <div class="flex text-fba-orange mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 font-medium italic">"I spent $3k on a dropshipping course and got my Amazon account deactivated in 2 weeks. The $19.99 pass here taught me how to actually buy from authorized distributors. Finally hit my first $10k month legally."</p>
+                    <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
+                        <div class="w-10 h-10 bg-fba-navy rounded-full flex items-center justify-center font-bold text-white">DB</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">Daniel B.</p>
+                            <p class="text-[10px] text-fba-success uppercase tracking-widest font-bold">Verified Wholesale Seller</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 p-8 rounded-xl relative">
+                    <div class="flex text-fba-orange mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 font-medium italic">"The ungating module alone is worth hundreds. I was struggling to get grocery ungated for months. Followed the guide, bought from their recommended supplier, and got approved in 4 hours."</p>
+                    <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
+                        <div class="w-10 h-10 bg-fba-navy rounded-full flex items-center justify-center font-bold text-white">MW</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">Michael W.</p>
+                            <p class="text-[10px] text-fba-success uppercase tracking-widest font-bold">Verified Whop Buyer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 p-8 rounded-xl relative">
+                    <div class="flex text-fba-orange mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 font-medium italic">"For twenty bucks a month this is stealing. The Keepa sourcing guides saved me so much time. I found a local prep center through the discord and now my business is 100% remote. I don't touch tape or boxes."</p>
+                    <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
+                        <div class="w-10 h-10 bg-fba-navy rounded-full flex items-center justify-center font-bold text-white">SK</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">Sarah K.</p>
+                            <p class="text-[10px] text-fba-success uppercase tracking-widest font-bold">FBA Arbitrage Seller</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 bg-fba-navy relative border-b border-fba-border">
+        <div class="absolute inset-0 bg-blueprint opacity-20 pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-display font-black text-white mb-4">Stop Overpaying For Information.</h2>
+                <p class="text-lg text-gray-400">Everything you need to build a wholesale business. No $5k upsells.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-[0_0_80px_rgba(255,153,0,0.15)] relative overflow-hidden">
+                
+                <div class="absolute top-0 right-0 bg-fba-success text-white font-sans text-xs font-bold px-4 py-1.5 rounded-bl-lg shadow-md uppercase tracking-wider">
+                    Instant Access
+                </div>
+
+                <div class="p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center">
+                    
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-3xl font-display font-black text-fba-navy mb-2">Hold My Hand Pass</h3>
+                        <p class="text-sm text-gray-500 font-medium mb-8">The complete Discord & Curriculum.</p>
+                        
+                        <div class="flex items-baseline justify-center md:justify-start gap-2 mb-4">
+                            <span class="text-6xl font-display font-black text-fba-navy">$19.99</span>
+                            <span class="font-sans text-sm text-gray-500 font-bold uppercase tracking-wider">/ Month</span>
+                        </div>
+                        <p class="text-sm text-gray-600 font-medium mb-8">Less than the cost of one bad product return.</p>
+                        
+                        <a href="https://whop.com/hold-my-hand-wholesale/hold-my-hand-wholesale?a=digitalartlab" target="_blank" class="block w-full text-center btn-amazon font-display font-bold uppercase tracking-wider py-5 rounded-lg text-lg">
+                            Join The Community Now
+                        </a>
+                        
+                        <div class="mt-4 flex items-center justify-center md:justify-start gap-2 text-xs text-gray-400 font-semibold">
+                            <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                            Secure Checkout via Whop. Cancel Anytime.
+                        </div>
+                    </div>
+
+                    <div class="flex-1 w-full md:border-l border-gray-200 pt-8 md:pt-0 md:pl-10">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-fba-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-gray-800 font-semibold">Step-by-Step Wholesale Course</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-fba-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-gray-800 font-semibold">Private Discord Network Access</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-fba-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-gray-800 font-semibold">Auto-Ungating Supplier Links</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-fba-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-gray-800 font-semibold">Verified Distributor Lists</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-fba-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-gray-800 font-semibold">Email Scripts & Call Templates</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-fba-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-gray-800 font-semibold">Keepa Sourcing Tutorials</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 border-b border-fba-border" x-data="{ activeAccordion: null }">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-display font-black text-center mb-12 text-fba-navy">Frequently Asked <span class="text-fba-orange">Questions</span></h2>
             
             <div class="space-y-4">
-                <div class="glass-card rounded-xl overflow-hidden">
-                    <button class="w-full px-6 py-4 text-left flex justify-between items-center font-bold text-slate-700 hover:bg-blue-50 transition-colors" onclick="toggleFaq(this)">
-                        <span>I've never resold anything. Is this for me?</span>
-                        <svg class="w-5 h-5 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none">
+                        <span class="font-bold text-gray-900">How much money do I need to start Amazon FBA?</span>
+                        <svg :class="{'rotate-180 text-fba-orange': activeAccordion === 1}" class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div class="hidden px-6 pb-4 text-slate-600 text-sm leading-relaxed">
-                        Yes! That's exactly who we built this for. Most members start with zero experience. We hold your hand through every step until you're confident.
+                    <div x-show="activeAccordion === 1" x-collapse>
+                        <div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                            Unlike Private Label which requires $5,000+ for inventory from China, you can start Wholesale Arbitrage with $500 to $1,000. You are buying domestic products in smaller cases (e.g., a case of 20 shampoos) and turning your capital over quickly.
+                        </div>
                     </div>
                 </div>
 
-                <div class="glass-card rounded-xl overflow-hidden">
-                    <button class="w-full px-6 py-4 text-left flex justify-between items-center font-bold text-slate-700 hover:bg-blue-50 transition-colors" onclick="toggleFaq(this)">
-                        <span>How much money do I need to start?</span>
-                        <svg class="w-5 h-5 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 2 ? null : 2" class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none">
+                        <span class="font-bold text-gray-900">Do I need an LLC right away?</span>
+                        <svg :class="{'rotate-180 text-fba-orange': activeAccordion === 2}" class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div class="hidden px-6 pb-4 text-slate-600 text-sm leading-relaxed">
-                        You can start with $100-200 for retail arbitrage. We'll help you find low-cost, high-profit items to flip. As you profit, you reinvest and grow.
+                    <div x-show="activeAccordion === 2" x-collapse>
+                        <div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                            To open accounts with legitimate B2B Wholesale Distributors, yes, you will need a legal entity (LLC or Sole Prop) and a Resale Certificate/Seller's Permit from your state. The Discord contains a module explaining exactly how to get these quickly and affordably.
+                        </div>
                     </div>
                 </div>
 
-                <div class="glass-card rounded-xl overflow-hidden">
-                    <button class="w-full px-6 py-4 text-left flex justify-between items-center font-bold text-slate-700 hover:bg-blue-50 transition-colors" onclick="toggleFaq(this)">
-                        <span>What does "handholding" actually mean?</span>
-                        <svg class="w-5 h-5 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 3 ? null : 3" class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none">
+                        <span class="font-bold text-gray-900">What is "Ungating"?</span>
+                        <svg :class="{'rotate-180 text-fba-orange': activeAccordion === 3}" class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div class="hidden px-6 pb-4 text-slate-600 text-sm leading-relaxed">
-                        Real 1-on-1 support. Voice calls to walk you through your first store. Reviewing your finds before you buy. Answering your questions within hours, not days.
+                    <div x-show="activeAccordion === 3" x-collapse>
+                        <div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                            Amazon restricts (gates) new sellers from selling popular brands (like Nike or Lego) or categories (like Grocery or Topicals) to prevent counterfeits. To get ungated, you must submit a legitimate wholesale invoice from an authorized distributor showing you bought 10 units. We provide the exact suppliers that Amazon automatically approves.
+                        </div>
                     </div>
                 </div>
 
-                <div class="glass-card rounded-xl overflow-hidden">
-                    <button class="w-full px-6 py-4 text-left flex justify-between items-center font-bold text-slate-700 hover:bg-blue-50 transition-colors" onclick="toggleFaq(this)">
-                        <span>How quickly can I make my money back?</span>
-                        <svg class="w-5 h-5 transform transition-transform text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <button @click="activeAccordion = activeAccordion === 4 ? null : 4" class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none">
+                        <span class="font-bold text-gray-900">Why use the link on this page to sign up?</span>
+                        <svg :class="{'rotate-180 text-fba-orange': activeAccordion === 4}" class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div class="hidden px-6 pb-4 text-slate-600 text-sm leading-relaxed">
-                        Most members profit $200-500 in their first month. The $19.99 pays for itself with guidance on just one or two successful flips.
+                    <div x-show="activeAccordion === 4" x-collapse>
+                        <div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                            This is an official affiliate promotional page. By clicking the buttons on this site, you are routed directly to the secure Whop checkout for Hold My Hand Wholesale. We earn a small commission at no extra cost to you, which allows us to keep curating the best E-commerce communities.
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="py-20 bg-gradient-to-r from-blue-50 to-cyan-50">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-slate-900">DON'T DO IT ALONE</h2>
-            <p class="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">Starting is scary. We'll hold your hand every step of the way. Join 11 members already on their journey.</p>
-            
-            <a href="https://whop.com/hold-my-hand-wholesale/hold-my-hand-wholesale?a=digitalartlab" target="_blank" 
-               class="btn-primary text-white font-black text-xl px-12 py-6 rounded-full transition-all transform hover:scale-105 glow-blue inline-flex items-center gap-3 shadow-xl">
-                <span>HOLD MY HAND - $19.99</span>
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-            </a>
-            
-            <p class="text-sm text-slate-500 mt-6">🔒 Secure Whop checkout • Cancel anytime • 30% affiliate commission • 18.2% conversion rate</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-blue-100 py-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                        </svg>
+    <footer class="bg-fba-navy pt-20 pb-10 border-t border-fba-navy">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 border-b border-gray-800 pb-12">
+                
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded bg-fba-navy border border-gray-700 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-fba-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                        </div>
+                        <span class="font-display font-black text-xl tracking-tight text-white">HoldMyHand<span class="text-fba-orange">.</span></span>
                     </div>
-                    <div>
-                        <span class="font-display text-lg font-bold text-slate-800 block leading-none">Hold My Hand</span>
-                        <span class="text-xs text-blue-500 font-semibold">WHOLESALE</span>
+                    <p class="text-sm text-gray-400 leading-relaxed pr-8">
+                        The internet's most comprehensive, no-BS community for building a legitimate Amazon Wholesale and FBA Arbitrage business from the ground up.
+                    </p>
+                    <div class="mt-8">
+                        <a href="https://whop.com/hold-my-hand-wholesale/hold-my-hand-wholesale?a=digitalartlab" target="_blank" class="inline-block border border-fba-orange text-fba-orange hover:bg-fba-orange hover:text-fba-navy font-bold text-xs uppercase tracking-wider px-6 py-2 rounded transition-colors">
+                            Join Now ($19.99)
+                        </a>
                     </div>
                 </div>
-                <div class="text-sm text-slate-500 text-center md:text-right">
-                    <p>30% affiliate commission • Beginner-friendly reselling community</p>
-                    <p class="mt-1">Results require effort. Past member success doesn't guarantee future results.</p>
+                
+                <div class="lg:col-span-7">
+                    <div class="text-xs text-gray-500 space-y-4 leading-relaxed font-medium">
+                        <p><strong class="text-gray-400 uppercase tracking-wider">Affiliate Disclosure:</strong> This website operates as an independent affiliate partner. We earn a commission when you purchase Whop access via the links on this page. This helps support our platform and does not affect the price you pay.</p>
+                        <p><strong class="text-gray-400 uppercase tracking-wider">Earnings Disclaimer:</strong> Amazon FBA requires capital, effort, and compliance with Amazon's Terms of Service. The profit margins and revenue examples shown on this site are for illustrative purposes to explain the business model. We do not guarantee that you will make money. Past success of community members does not guarantee your future results. All subscriptions are processed securely via Whop.</p>
+                    </div>
                 </div>
+                
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center mt-8 font-sans text-xs text-gray-600 font-semibold uppercase tracking-wider">
+                <p>&copy; 2026 E-Com Affiliates. All Rights Reserved.</p>
+                <p class="mt-4 md:mt-0 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Secure Checkout by Whop
+                </p>
             </div>
         </div>
     </footer>
 
-    
-
-    <script>
-        window.addEventListener('scroll', () => {
-            const stickyCta = document.getElementById('stickyCta');
-            if (window.scrollY > 500) stickyCta.classList.add('visible');
-            else stickyCta.classList.remove('visible');
-        });
-
-        function toggleFaq(button) {
-            const answer = button.nextElementSibling;
-            const arrow = button.querySelector('svg');
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-                arrow.style.transform = 'rotate(180deg)';
-            } else {
-                answer.classList.add('hidden');
-                arrow.style.transform = 'rotate(0deg)';
-            }
-        }
-    </script>
 </body>
 </html>
